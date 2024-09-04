@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTPS</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baskerville:wght@400;700&display=swap">
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        video {
+            width: 100%;
+            max-width: 480px;
+            height: auto;
+        }
+        #delayedButton {
+            display: none;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #0ff, #f0f);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            font-family: 'Baskerville', serif;
+            box-shadow: 0 4px 8px rgba(0, 255, 255, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        #delayedButton:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 255, 255, 0.5);
+        }
+        #delayedButton:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <video id="myVid" autoplay>
+            <source src="0827.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button id="delayedButton" onclick="window.location.href='23827136526091727.html'">ヅ</button>
+    </div>
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('delayedButton').style.display = 'block';
+            }, 20000);
+        };
+    </script>
+</body>
+</html>

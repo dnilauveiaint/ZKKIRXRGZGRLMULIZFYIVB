@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400&family=Spectral:wght@400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: rgb(0, 0, 0);
+    font-family: 'Libre Baskerville', serif;
+    font-weight: normal;
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1em;
+    color: #ffffff;
+    margin: 15px 0;
+    font-family: 'Spectral', serif; 
+    font-weight: normal; 
+}
+
+.question1, .question2, button {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit; 
+}
+
+.question2 {
+    margin-top: -20px;
+}
+
+.btn-group {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 30px;
+}
+
+button {
+    width: 110px;
+    height: inherit;
+    font-size: 1em;
+    color: white;
+    background-color: red;
+    font-family: inherit; 
+    font-weight: normal; 
+    padding: 5px 30px;
+}
+
+button:hover {
+    background: white;
+    color: black;
+    border: 2px solid black; /* Only a black border on hover */
+}
+
+.no-btn {
+    background-color: green;
+}
+
+.gifbox .gif {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.gifbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+
+@media (min-width: 360px) and (max-width: 740px) {
+    .wrapper {
+        padding: 15px;
+    }
+    .gifbox {
+        height: auto;
+    }
+}
+
+.g1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.group1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2em;
+    margin-left: 1em;
+    margin-right: 1em;
+    z-index: 55;
+    margin-top: 2em;
+    opacity: 1;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+/*BUTTONS OPACITY*/
+#btt1, #btt2, #btt3, #btt4, #btt5, #btt6, #btt7, #btt8, #btt9, #btt10, #btt11, #btt12 {
+    opacity: 0;
+}
+
+/*BUTTONS2 OPACITY*/
+#bbtt1, #bbtt2, #bbtt3, #bbtt4, #bbtt5, #bbtt6, #bbtt7, #bbtt8, #bbtt9, #bbtt10, #bbtt11, #bbtt12 {
+    opacity: 0;
+}
