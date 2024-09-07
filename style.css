@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400&family=Spectral:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400&family=Spectral:wght@400&family=Gilda+Display:wght@400&display=swap');
 
 * {
     margin: 0;
@@ -30,10 +30,10 @@ body, html {
 }
 
 h2 {
-    font-size: 1em;
+    font-size: 1em; /* Adjust this value if you need a different size */
     color: #ffffff;
     margin: 15px 0;
-    font-family: 'Spectral', serif; 
+    font-family: 'Gilda Display', serif;   
     font-weight: normal; 
 }
 
