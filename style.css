@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap');
 
 * {
     margin: 0;
@@ -13,7 +13,7 @@ body, html {
     min-height: 100vh;
     margin: 0;
     background: rgb(0, 0, 0);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-weight: normal;
 }
 
@@ -33,7 +33,6 @@ h2 {
     font-size: 1em; /* Adjust this value if you need a different size */
     color: #ffffff;
     margin: 15px 0;
-    font-family: 'Inter', sans-serif;
     font-weight: normal; 
 }
 
@@ -42,7 +41,7 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Inter', sans-serif; 
+    font-family: inherit; 
 }
 
 .question2 {
@@ -64,7 +63,7 @@ button {
     font-size: 1em;
     color: white;
     background-color: red;
-    font-family: 'Inter', sans-serif; 
+    font-family: inherit; 
     font-weight: normal; 
     padding: 5px 30px;
 }
