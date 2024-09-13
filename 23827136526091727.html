@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HTTPS</title>
   <style>
-     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
-body {
-  font-family: 'Inter', sans-serif;
+    body {
+      font-family: 'Inter', sans-serif;
       background-color: #000000;
       margin: 0;
       padding: 0;
@@ -19,9 +19,9 @@ body {
     }
 
     .chat-container {
-      width: 90vw;
+      width: 95vw;
       max-width: 375px;
-      height: 90vh;
+      height: 95vh;
       max-height: 667px;
       background-color: #161616;
       border-radius: 20px;
@@ -205,7 +205,7 @@ body {
   <div class="chat-container">
     <div class="chat-header">
       <div class="contact-photo">
-        <img src="ac3f93fc-d1c1-46a4-bb77-7fab78a58f99.jpg" alt="Contact Photo"> <!-- Replace with actual image URL -->
+        <img src="ac3f93fc-d1c1-46a4-bb77-7fab78a58f99.jpg" alt="Contact Photo">
       </div>
       <div class="name">el</div>
       <div class="status">Online</div>
@@ -222,6 +222,7 @@ body {
       <div id="message2" class="message received hidden">Wala talagang virus.</div>
       <div id="message3" class="message received hidden">Daming kineme, ‘no?</div>
       <div id="message4" class="message received hidden">Pero ito na nga kasi, dahil nakaabot ka na rito, gusto mo pa ba malaman ‘yung mga susunod?</div>
+      <div id="message5" class="message received hidden">Ah, ayaw mo? haha sigi</div>
 
       <div id="choices1" class="choices hidden">
         <div class="choice-btn" onclick="chooseOption('syempre')">Syempre</div>
@@ -230,12 +231,39 @@ body {
 
       <div id="syempreResponse" class="message sent hidden">Syempre</div>
       <div id="syempreFollowUp" class="message received hidden">YEHEEEY!</div>
+      <div id="syempreGIF" class="message received hidden">
+        <img src="https://media.tenor.com/LbrKcEqj1c4AAAAi/oh-yay.gif" alt="Syempre GIF" style="width: 100%; border-radius: 18px;"></div>
       <div id="wagnaResponse" class="message sent hidden">Wag na</div>
-      <div id="wagnaFollowUp" class="message received hidden">Ah, ayaw mo? haha sigi</div>
+      <div id="wagnaFollowUp1" class="message received hidden">Luh</div>
+      <div id="wagnaFollowUp2" class="message received hidden">Gano’n?</div>
+      <div id="wagnaFollowUp3" class="message received hidden">Okay</div>
+      <div id="wagnaFollowUp4" class="message received hidden">‘Wag na pala, ah.</div>
+      <div id="wagnaFollowUp5" class="message received hidden">‘Wag mo uulitin ‘yan. X mo na, HMP!</div>
 
       <div id="choices2" class="choices hidden">
-        <div class="choice-btn" onclick="goToNextPage()">></div>
-        <div class="choice-btn" onclick="goToNextPage()">×</div>
+        <div class="choice-btn" onclick="continueConversation()">↻</div>
+        <div class="choice-btn" onclick="exitChat()">×</div>
+      </div>
+
+      <div id="additionalMessages" class="hidden">
+        <div id="message6" class="message received hidden">O, ‘nu ‘yan? Akala ko ba ‘wag na?</div>
+        <div id="message7" class="message received hidden">Tsk, curious ka, ‘no?</div>
+        <div id="message8" class="message received hidden">Pasalamat ka mabait ako.</div>
+      </div>
+
+      <div id="choices3" class="choices hidden">
+        <div class="choice-btn" onclick="showResponse('ty')">Thank you!</div>
+        <div class="choice-btn" onclick="showResponse('salamat')">Salamat!</div>
+      </div>
+
+      <div id="tyResponse" class="message sent hidden">Thank you!</div>
+      <div id="tyFollowUp" class="message received hidden">You’re welcome! ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧</div>
+      <div id="salamatResponse" class="message sent hidden">Salamat!</div>
+      <div id="salamatFollowUp" class="message received hidden">Walang anuman! ฅ^•ﻌ•^ฅ</div>
+
+      <div id="byeMessage" class="message received hidden">Bye.</div> 
+      <div id="exitGIF" class="message received hidden">
+        <img src="https://media.tenor.com/DhNYwZXLWQgAAAAi/unhappy-crossed.gif" alt="Exit GIF" style="width: 100%; border-radius: 18px;">
       </div>
     </div>
   </div>
@@ -259,63 +287,117 @@ body {
       messagesContainer.scrollTop = messagesContainer.scrollHeight;
     }
 
-    setTimeout(() => {
-      showTypingIndicator(() => {
-        document.getElementById('message1').classList.remove('hidden');
-        updateScroll();
-      });
-    }, 1000);
-
-    setTimeout(() => {
-      showTypingIndicator(() => {
-        document.getElementById('message2').classList.remove('hidden');
-        updateScroll();
-      });
-    }, 4000);
-
-    setTimeout(() => {
-      showTypingIndicator(() => {
-        document.getElementById('message3').classList.remove('hidden');
-        updateScroll();
-      });
-    }, 7000);
-
-    setTimeout(() => {
-      showTypingIndicator(() => {
-        document.getElementById('message4').classList.remove('hidden');
-        updateScroll();
-      });
-    }, 10000);
-
-    setTimeout(() => {
-      document.getElementById('choices1').classList.remove('hidden');
+    function displayMessage(id, callback) {
+      document.getElementById(id).classList.remove('hidden');
       updateScroll();
-    }, 13000);
+      setTimeout(callback, 1000);
+    }
+
+    function initializeConversation() {
+      setTimeout(() => {
+        showTypingIndicator(() => {
+          displayMessage('message1', () => {});
+        });
+      }, 1000);
+
+      setTimeout(() => {
+        showTypingIndicator(() => {
+          displayMessage('message2', () => {});
+        });
+      }, 3000);
+
+      setTimeout(() => {
+        showTypingIndicator(() => {
+          displayMessage('message3', () => {});
+        });
+      }, 5000);
+
+      setTimeout(() => {
+        showTypingIndicator(() => {
+          displayMessage('message4', () => {});
+        });
+      }, 8000);
+
+      setTimeout(() => {
+        displayMessage('message5', () => {
+          document.getElementById('choices1').classList.remove('hidden');
+        });
+      }, 10000);
+    }
 
     function chooseOption(choice) {
-      document.getElementById('choices1').classList.add('hidden');
-      if (choice === 'syempre') {
-        document.getElementById('syempreResponse').classList.remove('hidden');
-        updateScroll();
-        setTimeout(() => showTypingIndicator(() => {
-          document.getElementById('syempreFollowUp').classList.remove('hidden');
-          updateScroll();
-        }), 1000);
-        setTimeout(() => goToNextPage(), 4000);
-      } else if (choice === 'wagna') {
-        document.getElementById('wagnaResponse').classList.remove('hidden');
-        updateScroll();
-        setTimeout(() => showTypingIndicator(() => {
-          document.getElementById('wagnaFollowUp').classList.remove('hidden');
-          updateScroll();
-        }), 1000);
-        setTimeout(() => document.getElementById('choices2').classList.remove('hidden'), 4000);
+  document.getElementById('choices1').classList.add('hidden');
+  if (choice === 'syempre') {
+    displayMessage('syempreResponse', () => {
+      displayMessage('syempreFollowUp', () => {
+        displayMessage('syempreGIF', () => { 
+          goToNextPage();
+        });
+      });
+    });
+  } else if (choice === 'wagna') {
+    displayMessage('wagnaResponse', () => {
+      displayMessage('wagnaFollowUp1', () => {
+        displayMessage('wagnaFollowUp2', () => {
+          displayMessage('wagnaFollowUp3', () => {
+            displayMessage('wagnaFollowUp4', () => {
+              displayMessage('wagnaFollowUp5', () => {
+                document.getElementById('choices2').classList.remove('hidden');
+              });
+            });
+          });
+        });
+      });
+    });
+  }
+}
+
+    function continueConversation() {
+      document.getElementById('choices2').classList.add('hidden');
+      document.getElementById('additionalMessages').classList.remove('hidden');
+      setTimeout(() => {
+        displayMessage('message6', () => {
+          displayMessage('message7', () => {
+            displayMessage('message8', () => {
+              document.getElementById('choices3').classList.remove('hidden');
+            });
+          });
+        });
+      }, 1000);
+    }
+
+    function showResponse(response) {
+      document.getElementById('choices3').classList.add('hidden');
+      if (response === 'ty') {
+        displayMessage('tyResponse', () => {
+          displayMessage('tyFollowUp', () => {
+            goToNextPage();
+          }, 2000);
+        });
+      } else if (response === 'salamat') {
+        displayMessage('salamatResponse', () => {
+          displayMessage('salamatFollowUp', () => {
+            goToNextPage();
+          }, 2000);
+        });
       }
     }
 
+    function exitChat() {
+  document.getElementById('choices2').classList.add('hidden');
+  displayMessage('byeMessage', () => {
+    displayMessage('exitGIF', () => {
+      setTimeout(() => {
+        window.close();
+      }, 1000); // Give time for the "Bye" message and GIF to appear
+    });
+  });
+}
     function goToNextPage() {
-      window.location.href = "nextpage.html";  // Replace with actual page URL
+      window.location.href = "23827136526091728.html"; // Replace with actual page URL
     }
+
+    window.onload = initializeConversation;
   </script>
 
 </body>
