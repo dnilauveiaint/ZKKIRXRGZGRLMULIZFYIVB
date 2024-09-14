@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Identity Verification</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: linear-gradient(90deg, #000428, #004e92);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Oxygen', Ubuntu, Cantarell, 'Fira Sans', Droid Sans, Helvetica, Arial, sans-serif;
+    color: #fff;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .identity-box {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #00f5ff;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .identity-box:hover {
+    box-shadow: 0 0 40px rgba(0, 245, 255, 0.9);
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    position: relative;
+    color: #00f5ff;
+  }
+  
+  .glitch {
+    animation: glitch 1s infinite;
+  }
+  
+  @keyframes glitch {
+    0%, 100% {
+      text-shadow: 0 0 10px #00f5ff, -2px -2px 5px rgba(0, 245, 255, 0.7), 2px 2px 5px rgba(0, 245, 255, 0.7);
+    }
+    50% {
+      text-shadow: -5px 5px 15px rgba(0, 245, 255, 0.9), 5px -5px 15px rgba(0, 245, 255, 0.9);
+    }
+  }
+  
+  input {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid #00f5ff;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    font-family: inherit;
+  }
+  
+  button {
+    background: #00f5ff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: #000;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-family: inherit;
+  }
+  
+  button:hover {
+    background: #00b3ff;
+  }
+  
+  .error-message {
+    color: red;
+    display: none;
+    margin-top: 10px;
+    font-family: inherit;
+  }
+  
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+  
+    button {
+      font-size: 1rem;
+    }
+  }
+  
+  </style>
+
+  <div class="container">
+    <div class="identity-box">
+      <h1 class="glitch" data-text="VERIFY IDENTITY">VERIFY IDENTITY</h1>
+      <p>Enter the contact name I created for you.</p>
+      <input type="text" id="identityInput" placeholder="Enter Identity Code">
+      <button id="verifyBtn">Proceed</button>
+      <p id="errorMessage" class="error-message"></p> <!-- Error message will be shown here -->
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('verifyBtn').addEventListener('click', function() {
+  const input = document.getElementById('identityInput').value.toLowerCase();
+  const errorMessage = document.getElementById('errorMessage');
+  
+  if (input === 'st. aubreycakes') {
+    errorMessage.textContent = 'Identity verified. Redirecting...';
+    errorMessage.style.color = '#0f0';
+    errorMessage.style.display = 'block';
+    setTimeout(() => {
+      window.location.href = '23827136526091721.html'; // Redirect to the next page
+    }, 2000);
+  } else {
+    errorMessage.textContent = 'Incorrect.';
+    errorMessage.style.color = 'red';
+    errorMessage.style.display = 'block';
+    setTimeout(() => {
+      errorMessage.style.display = 'none';
+    }, 3000);
+  }
+});
+
+  </script>
+</body>
+</html>
