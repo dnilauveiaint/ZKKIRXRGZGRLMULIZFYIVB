@@ -19,12 +19,10 @@
     }
 
     .chat-container {
-      width: 95vw;
-      max-width: 375px;
-      height: 95vh;
-      max-height: 667px;
+      width: 100vw;
+      height: 100vh;
       background-color: #161616;
-      border-radius: 20px;
+      border-radius: 0; /* Remove the border radius for a fullscreen effect */
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -107,6 +105,12 @@
       text-align: right;
       margin-left: auto;
       border-radius: 18px 18px 0 18px;
+    }
+
+    .gif-message {
+      background-color: #161616; /* Same as chat container background */
+      color: white;
+      text-align: left;
     }
 
     .typing-indicator {
@@ -198,6 +202,11 @@
       display: none;
     }
 
+    .additional-messages-container {
+  display: flex;
+  flex-direction: column;
+  }
+  
   </style>
 </head>
 <body>
@@ -230,9 +239,10 @@
       </div>
 
       <div id="syempreResponse" class="message sent hidden">Syempre</div>
-      <div id="syempreFollowUp" class="message received hidden">YEHEEEY!</div>
-      <div id="syempreGIF" class="message received hidden">
-        <img src="https://media.tenor.com/LbrKcEqj1c4AAAAi/oh-yay.gif" alt="Syempre GIF" style="width: 100%; border-radius: 18px;"></div>
+      <div id="syempreFollowUp" class="message received hidden">YAY! Let’s gaur!</div>
+      <div id="syempreGIF" class="message gif-message hidden">
+        <img src="https://i.pinimg.com/originals/83/75/6c/83756c72b909bbea750131eb3638a6bf.gif" alt="Syempre GIF" style="width: 100%; border-radius: 18px;">
+      </div>
       <div id="wagnaResponse" class="message sent hidden">Wag na</div>
       <div id="wagnaFollowUp1" class="message received hidden">Luh</div>
       <div id="wagnaFollowUp2" class="message received hidden">Gano’n?</div>
@@ -246,10 +256,13 @@
       </div>
 
       <div id="additionalMessages" class="hidden">
-        <div id="message6" class="message received hidden">O, ‘nu ‘yan? Akala ko ba ‘wag na?</div>
-        <div id="message7" class="message received hidden">Tsk, curious ka, ‘no?</div>
-        <div id="message8" class="message received hidden">Pasalamat ka mabait ako.</div>
+        <div class="additional-messages-container">
+          <div id="message6" class="message received hidden">O, ‘nu ‘yan? Akala ko ba ‘wag na?</div>
+          <div id="message7" class="message received hidden">Tsk, curious ka, ‘no?</div>
+          <div id="message8" class="message received hidden">Pasalamat ka mabait ako.</div>
+        </div>
       </div>
+      
 
       <div id="choices3" class="choices hidden">
         <div class="choice-btn" onclick="showResponse('ty')">Thank you!</div>
@@ -258,11 +271,18 @@
 
       <div id="tyResponse" class="message sent hidden">Thank you!</div>
       <div id="tyFollowUp" class="message received hidden">You’re welcome! ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧</div>
+      <div id="tyGIF" class="message gif-message hidden">
+        <img src="https://i.pinimg.com/originals/ed/f8/14/edf814c31ea9381dd17399ecdf48aaa1.gif" alt="Thank You GIF" style="width: 100%; border-radius: 18px;">
+      </div>
+
       <div id="salamatResponse" class="message sent hidden">Salamat!</div>
       <div id="salamatFollowUp" class="message received hidden">Walang anuman! ฅ^•ﻌ•^ฅ</div>
+      <div id="salamatGIF" class="message gif-message hidden">
+        <img src="https://media.tenor.com/Je3u_A4Od4YAAAAi/thank-you-salamat.gif" alt="Salamat GIF" style="width: 100%; border-radius: 18px;">
+      </div>
 
       <div id="byeMessage" class="message received hidden">Bye.</div> 
-      <div id="exitGIF" class="message received hidden">
+      <div id="exitGIF" class="message gif-message hidden">
         <img src="https://media.tenor.com/DhNYwZXLWQgAAAAi/unhappy-crossed.gif" alt="Exit GIF" style="width: 100%; border-radius: 18px;">
       </div>
     </div>
@@ -304,53 +324,53 @@
         showTypingIndicator(() => {
           displayMessage('message2', () => {});
         });
-      }, 3000);
+      }, 4000);
 
       setTimeout(() => {
         showTypingIndicator(() => {
           displayMessage('message3', () => {});
         });
-      }, 5000);
+      }, 7000);
 
       setTimeout(() => {
         showTypingIndicator(() => {
           displayMessage('message4', () => {});
         });
-      }, 8000);
+      }, 10000);
 
       setTimeout(() => {
         displayMessage('message5', () => {
           document.getElementById('choices1').classList.remove('hidden');
         });
-      }, 10000);
+      }, 13000);
     }
 
     function chooseOption(choice) {
-  document.getElementById('choices1').classList.add('hidden');
-  if (choice === 'syempre') {
-    displayMessage('syempreResponse', () => {
-      displayMessage('syempreFollowUp', () => {
-        displayMessage('syempreGIF', () => { 
-          goToNextPage();
+      document.getElementById('choices1').classList.add('hidden');
+      if (choice === 'syempre') {
+        displayMessage('syempreResponse', () => {
+          displayMessage('syempreFollowUp', () => {
+            displayMessage('syempreGIF', () => { 
+              goToNextPage();
+            });
+          });
         });
-      });
-    });
-  } else if (choice === 'wagna') {
-    displayMessage('wagnaResponse', () => {
-      displayMessage('wagnaFollowUp1', () => {
-        displayMessage('wagnaFollowUp2', () => {
-          displayMessage('wagnaFollowUp3', () => {
-            displayMessage('wagnaFollowUp4', () => {
-              displayMessage('wagnaFollowUp5', () => {
-                document.getElementById('choices2').classList.remove('hidden');
+      } else if (choice === 'wagna') {
+        displayMessage('wagnaResponse', () => {
+          displayMessage('wagnaFollowUp1', () => {
+            displayMessage('wagnaFollowUp2', () => {
+              displayMessage('wagnaFollowUp3', () => {
+                displayMessage('wagnaFollowUp4', () => {
+                  displayMessage('wagnaFollowUp5', () => {
+                    document.getElementById('choices2').classList.remove('hidden');
+                  });
+                });
               });
             });
           });
         });
-      });
-    });
-  }
-}
+      }
+    }
 
     function continueConversation() {
       document.getElementById('choices2').classList.add('hidden');
@@ -371,30 +391,37 @@
       if (response === 'ty') {
         displayMessage('tyResponse', () => {
           displayMessage('tyFollowUp', () => {
-            goToNextPage();
-          }, 2000);
+            displayMessage('tyGIF', () => {
+              goToNextPage();
+            });
+          });
         });
       } else if (response === 'salamat') {
         displayMessage('salamatResponse', () => {
           displayMessage('salamatFollowUp', () => {
-            goToNextPage();
-          }, 2000);
+            displayMessage('salamatGIF', () => {
+              goToNextPage();
+            });
+          });
         });
       }
     }
 
     function exitChat() {
-  document.getElementById('choices2').classList.add('hidden');
-  displayMessage('byeMessage', () => {
-    displayMessage('exitGIF', () => {
-      setTimeout(() => {
-        window.close();
-      }, 1000); // Give time for the "Bye" message and GIF to appear
-    });
-  });
-}
+      document.getElementById('choices2').classList.add('hidden');
+      displayMessage('byeMessage', () => {
+        displayMessage('exitGIF', () => {
+          setTimeout(() => {
+            window.close();
+          }, 1000); // Give time for the "Bye" message and GIF to appear
+        });
+      });
+    }
+
     function goToNextPage() {
-      window.location.href = "23827136526091728.html"; // Replace with actual page URL
+      setTimeout(() => {
+        window.location.href = "23827136526091728.html"; // Replace with actual page URL
+      }, 3000); // 3 seconds delay before going to the next page
     }
 
     window.onload = initializeConversation;
