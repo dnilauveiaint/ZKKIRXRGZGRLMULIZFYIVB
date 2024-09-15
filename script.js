@@ -5,7 +5,7 @@ const noBtn = document.querySelector(".no_btn");
 const question2 = document.querySelector(".question2");
 
 document.oncontextmenu = () => {
-    alert("I know what you're doing.");
+    alert("I know what you’re doing.");
     return false;
 };
 
