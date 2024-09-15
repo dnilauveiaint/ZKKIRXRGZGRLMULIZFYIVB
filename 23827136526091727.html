@@ -413,18 +413,23 @@
         displayMessage('exitGIF', () => {
           setTimeout(() => {
             window.close();
-          }, 1000); // Give time for the "Bye" message and GIF to appear
+          }, 1000); 
         });
       });
     }
 
     function goToNextPage() {
       setTimeout(() => {
-        window.location.href = "23827136526091728.html"; // Replace with actual page URL
-      }, 3000); // 3 seconds delay before going to the next page
+        window.location.href = "23827136526091728.html"; 
+      }, 3000); 
     }
 
     window.onload = initializeConversation;
+
+    document.oncontextmenu = () => {
+    alert("I know what you’re doing.");
+    return false;
+};
   </script>
 
 </body>

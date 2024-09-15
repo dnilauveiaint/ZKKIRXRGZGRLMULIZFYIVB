@@ -61,6 +61,35 @@
         document.getElementById('myVid').addEventListener('ended', function() {
             document.getElementById('delayedButton').style.display = 'block';
         });
+
+        document.oncontextmenu = () => {
+    alert("I know what you’re doing.");
+    return false;
+};
+
+document.onkeydown = e => {
+    if (e.key == "F12") {
+        alert("Prohibited!");
+        return false;
+    }
+    if (e.ctrlKey && e.key == "u") {
+        alert("XD");
+        return false;
+    }
+    if (e.ctrlKey && e.key == "c") {
+        alert("Copy what?");
+        return false;
+    }
+    if (e.ctrlKey && e.key == "v") {
+        alert(":P");
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+        alert("Inspect pa!");
+        e.preventDefault();
+        return false;
+    }
+};
     </script>
 </body>
 </html>
